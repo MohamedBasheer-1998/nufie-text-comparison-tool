@@ -2,7 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nufie Text Comparison</title>
+  
+  <!-- AdSense Verification Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2960209997772105" crossorigin="anonymous"></script>
+
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -130,7 +135,7 @@
 
   <!-- Header -->
   <header>
-    Text Comparison Tool
+    Nufie Text Comparison Tool
   </header>
 
   <div class="container">
@@ -151,10 +156,11 @@
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Text Comparison Tool | Designed by Nufie</p>
+    <p>&copy; 2025 Nufie Text Comparison Tool | Designed by Nufie</p>
   </footer>
 
   <script>
+    // Function to escape HTML for security
     function escapeHTML(str) {
       return str
         .replace(/&/g, "&amp;")
@@ -173,6 +179,7 @@
       const lines2 = text2.split("\n");
       const maxLines = Math.max(lines1.length, lines2.length);
 
+      // Compare each line
       for (let i = 0; i < maxLines; i++) {
         const line1 = lines1[i] || "";
         const line2 = lines2[i] || "";
@@ -182,10 +189,12 @@
 
         const maxLength = Math.max(line1.length, line2.length);
 
+        // Compare each character in the line
         for (let j = 0; j < maxLength; j++) {
           const char1 = line1[j] || "";
           const char2 = line2[j] || "";
 
+          // If characters match, add them normally
           if (char1 === char2) {
             resultLineLeft += escapeHTML(char1);
             resultLineRight += escapeHTML(char2);
@@ -199,9 +208,11 @@
         resultRight += resultLineRight + "\n";
       }
 
+      // Update result boxes with comparison result
       document.getElementById("result-left").innerHTML = resultLeft;
       document.getElementById("result-right").innerHTML = resultRight;
     }
   </script>
+
 </body>
 </html>

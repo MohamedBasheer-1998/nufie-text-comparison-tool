@@ -3,23 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nufie Text Comparison</title>
-  
-  <!-- Google AdSense Verification Script -->
+  <title>Compare Text, Code, JSON Online - Nufie Diff Tool</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Compare text, code, or JSON online using Nufie's free diff tool. Supports side-by-side comparison, JSON formatting, code compare, and more.">
+  <meta name="keywords" content="compare text online, diff checker, code comparison tool, json compare, json formatter, c# compare, text difference tool, line by line comparison, online diff viewer, text similarity checker, string comparison tool, programming diff checker, plagiarism comparison, compare two texts">
+  <meta name="author" content="Nufie">
+
+  <!-- Open Graph Tags for Social Sharing -->
+  <meta property="og:title" content="Compare Text, Code, or JSON Online">
+  <meta property="og:description" content="Nufie lets you compare text, code snippets, or JSON files in your browser. No downloads needed.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:image" content="https://yourdomain.com/assets/preview.png">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nufie Online Diff Tool">
+  <meta name="twitter:description" content="Compare any text, JSON, or code online. Try Nufie's fast, free diff viewer.">
+  <meta name="twitter:image" content="https://yourdomain.com/assets/preview.png">
+
+  <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2960209997772105" crossorigin="anonymous"></script>
+
+  <!-- Developer Note: SEO Keywords in use:
+    compare text online, diff checker, code compare, c# compare, json formatter, json compare,
+    line by line comparison, string comparison tool, programming diff, side-by-side comparison,
+    text difference checker, plagiarism checker alternative
+  -->
 
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #fdfaf5; /* Soft off-white background */
-      color: #3e2723; /* Dark brown text color */
+      background-color: #fdfaf5;
+      color: #3e2723;
       padding: 20px;
       margin: 0;
     }
 
-    /* Header Styling */
     header {
-      background-color: #6d4c41; /* Brown color */
+      background-color: #6d4c41;
       color: white;
       text-align: center;
       padding: 15px 0;
@@ -29,7 +52,6 @@
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    /* Footer Styling */
     footer {
       background-color: #6d4c41;
       color: white;
@@ -59,22 +81,19 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
     }
 
     textarea {
       width: 48%;
       height: 250px;
-      margin-bottom: 10px;
       padding: 15px;
       font-size: 16px;
       font-family: monospace;
-      box-sizing: border-box;
       border: 2px solid #6d4c41;
       border-radius: 8px;
       background-color: #faf3e0;
       color: #3e2723;
-      transition: border-color 0.3s ease;
     }
 
     textarea:focus {
@@ -90,7 +109,7 @@
       color: white;
       border: none;
       border-radius: 8px;
-      transition: background-color 0.3s ease;
+      margin-bottom: 20px;
     }
 
     button:hover {
@@ -98,7 +117,7 @@
     }
 
     .result-wrapper {
-      margin-top: 30px;
+      margin-top: 20px;
       display: flex;
       justify-content: space-between;
       width: 100%;
@@ -129,17 +148,56 @@
       padding: 0 4px;
       border-radius: 4px;
     }
+
+    .ads-container {
+      margin: 30px 0;
+      width: 100%;
+    }
+
+    .tools-suggestion, .blog-suggestion {
+      background: #fff8f0;
+      padding: 20px;
+      border: 1px solid #e0cfc1;
+      border-radius: 10px;
+      width: 100%;
+      margin-top: 30px;
+    }
+
+    .tools-suggestion ul {
+      padding-left: 20px;
+    }
+
+    .social-share {
+      margin-top: 20px;
+    }
+
+    .social-share a {
+      text-decoration: none;
+      color: #6d4c41;
+      margin: 0 10px;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Header -->
   <header>
     Nufie Text Comparison Tool
   </header>
 
   <div class="container">
-    <h1>Compare Two Texts</h1>
+    <h1>Compare Text, JSON, Code Online</h1>
+
+    <!-- AdSense Ad Top -->
+    <div class="ads-container">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-2960209997772105"
+           data-ad-slot="2432524932"
+           data-ad-format="horizontal"
+           data-full-width-responsive="true"></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
 
     <div class="comparison-wrapper">
       <textarea id="text1" placeholder="Enter first text here..."></textarea>
@@ -153,7 +211,7 @@
       <div id="result-right" class="result-box"></div>
     </div>
 
-    <!-- Google AdSense Ad -->
+    <!-- Second Ad Block -->
     <div class="ads-container">
       <ins class="adsbygoogle"
            style="display:block"
@@ -161,20 +219,45 @@
            data-ad-slot="2432524932"
            data-ad-format="auto"
            data-full-width-responsive="true"></ins>
-      <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <!-- Suggested Tools Section -->
+    <div class="tools-suggestion">
+      <h2>More Useful Tools</h2>
+      <ul>
+        <li>✅ <strong>JSON Compare</strong> – Compare two JSON objects</li>
+        <li>✅ <strong>JSON Formatter</strong> – Pretty-print and beautify JSON</li>
+        <li>✅ <strong>Code Compare</strong> – Supports C#, JavaScript, Python, and more</li>
+        <li>✅ <strong>C# Compare Tool</strong> – Spot syntax changes quickly</li>
+        <li>✅ <strong>Text Similarity Checker</strong> – Check how close two strings are</li>
+        <li>✅ <strong>Plagiarism Difference Checker</strong> – Find modified sentences</li>
+      </ul>
+    </div>
+
+    <!-- Blog Content Placeholder -->
+    <div class="blog-suggestion">
+      <h2>Helpful Articles</h2>
+      <p>📝 How to compare code, text, or JSON without software.</p>
+      <p>📝 Why programmers and students use online diff tools.</p>
+      <p><em>More blog content coming soon...</em></p>
+    </div>
+
+    <!-- Social Sharing -->
+    <div class="social-share">
+      <p>Share this tool:</p>
+      <a href="#">🔗 Facebook</a>
+      <a href="#">🔗 Twitter</a>
+      <a href="#">🔗 WhatsApp</a>
     </div>
 
   </div>
 
-  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Nufie Text Comparison Tool | Designed by Nufie</p>
   </footer>
 
   <script>
-    // Function to escape HTML for security
     function escapeHTML(str) {
       return str
         .replace(/&/g, "&amp;")
@@ -193,7 +276,6 @@
       const lines2 = text2.split("\n");
       const maxLines = Math.max(lines1.length, lines2.length);
 
-      // Compare each line
       for (let i = 0; i < maxLines; i++) {
         const line1 = lines1[i] || "";
         const line2 = lines2[i] || "";
@@ -203,12 +285,10 @@
 
         const maxLength = Math.max(line1.length, line2.length);
 
-        // Compare each character in the line
         for (let j = 0; j < maxLength; j++) {
           const char1 = line1[j] || "";
           const char2 = line2[j] || "";
 
-          // If characters match, add them normally
           if (char1 === char2) {
             resultLineLeft += escapeHTML(char1);
             resultLineRight += escapeHTML(char2);
@@ -222,7 +302,6 @@
         resultRight += resultLineRight + "\n";
       }
 
-      // Update result boxes with comparison result
       document.getElementById("result-left").innerHTML = resultLeft;
       document.getElementById("result-right").innerHTML = resultRight;
     }

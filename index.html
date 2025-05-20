@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nufie Text Comparison</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #fdfaf5; /* Soft off-white background */
+      color: #3e2723; /* Dark brown text color */
+      padding: 20px;
+      margin: 0;
+    }
+
+    /* Header Styling */
+    header {
+      background-color: #6d4c41; /* Brown color */
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      font-size: 26px;
+      font-weight: bold;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #6d4c41;
+      color: white;
+      text-align: center;
+      padding: 8px 0;
+      font-size: 14px;
+      margin-top: 30px;
+      border-radius: 5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 50px;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #6d4c41;
+    }
+
+    .comparison-wrapper {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    textarea {
+      width: 48%;
+      height: 250px;
+      margin-bottom: 10px;
+      padding: 15px;
+      font-size: 16px;
+      font-family: monospace;
+      box-sizing: border-box;
+      border: 2px solid #6d4c41;
+      border-radius: 8px;
+      background-color: #faf3e0;
+      color: #3e2723;
+      transition: border-color 0.3s ease;
+    }
+
+    textarea:focus {
+      border-color: #3e2723;
+      outline: none;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      background-color: #6d4c41;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #3e2723;
+    }
+
+    .result-wrapper {
+      margin-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .result-box {
+      width: 48%;
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 15px;
+      border: 2px solid #6d4c41;
+      border-radius: 8px;
+      min-height: 150px;
+      font-family: monospace;
+      color: #3e2723;
+    }
+
+    .diff-left {
+      background-color: #6d4c41;
+      color: white;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+
+    .diff-right {
+      background-color: #d32f2f;
+      color: white;
+      padding: 0 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    Text Comparison Tool
+  </header>
+
+  <div class="container">
+    <h1>Compare Two Texts</h1>
+
+    <div class="comparison-wrapper">
+      <textarea id="text1" placeholder="Enter first text here..."></textarea>
+      <textarea id="text2" placeholder="Enter second text here..."></textarea>
+    </div>
+
+    <button onclick="compareTexts()">Compare</button>
+
+    <div class="result-wrapper">
+      <div id="result-left" class="result-box"></div>
+      <div id="result-right" class="result-box"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Text Comparison Tool | Designed by Nufie</p>
+  </footer>
+
+  <script>
+    function escapeHTML(str) {
+      return str
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    }
+
+    function compareTexts() {
+      const text1 = document.getElementById("text1").value;
+      const text2 = document.getElementById("text2").value;
+
+      let resultLeft = "";
+      let resultRight = "";
+
+      const lines1 = text1.split("\n");
+      const lines2 = text2.split("\n");
+      const maxLines = Math.max(lines1.length, lines2.length);
+
+      for (let i = 0; i < maxLines; i++) {
+        const line1 = lines1[i] || "";
+        const line2 = lines2[i] || "";
+
+        let resultLineLeft = "";
+        let resultLineRight = "";
+
+        const maxLength = Math.max(line1.length, line2.length);
+
+        for (let j = 0; j < maxLength; j++) {
+          const char1 = line1[j] || "";
+          const char2 = line2[j] || "";
+
+          if (char1 === char2) {
+            resultLineLeft += escapeHTML(char1);
+            resultLineRight += escapeHTML(char2);
+          } else {
+            resultLineLeft += `<span class="diff-left">${escapeHTML(char1)}</span>`;
+            resultLineRight += `<span class="diff-right">${escapeHTML(char2)}</span>`;
+          }
+        }
+
+        resultLeft += resultLineLeft + "\n";
+        resultRight += resultLineRight + "\n";
+      }
+
+      document.getElementById("result-left").innerHTML = resultLeft;
+      document.getElementById("result-right").innerHTML = resultRight;
+    }
+  </script>
+</body>
+</html>

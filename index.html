@@ -204,10 +204,10 @@
   <header>
     <h1>Nufie Text Comparison Tool</h1>
     <nav>
-      <a onclick="showSection('home')">Home</a>
-      <a onclick="showSection('about')">About</a>
-      <a onclick="showSection('privacy')">Privacy Policy</a>
-      <a onclick="showSection('contact')">Contact</a>
+      <a href="#home" onclick="showSection('home'); return false;">Home</a>
+      <a href="#about" onclick="showSection('about'); return false;">About</a>
+      <a href="#privacy" onclick="showSection('privacy'); return false;">Privacy Policy</a>
+      <a href="#contact" onclick="showSection('contact'); return false;">Contact</a>
     </nav>
   </header>
 
@@ -281,7 +281,7 @@
       <p>
         We are dedicated to providing a fast, user-friendly, and free tool for everyone.
       </p>
-      <p>If you want to learn more, please <a href="#" onclick="showSection('contact')">contact us</a>.</p>
+      <p>If you want to learn more, please <a href="#contact" onclick="showSection('contact'); return false;">contact us</a>.</p>
     </section>
 
     <section id="privacy" class="page-content">
@@ -302,35 +302,34 @@
       <h2>Your rights</h2>
       <p>You can control cookies and tracking through your browser settings.</p>
 
-      <p>For questions, please <a href="#" onclick="showSection('contact')">contact us</a>.</p>
+      <p>For questions, please <a href="#contact" onclick="showSection('contact'); return false;">contact us</a>.</p>
     </section>
 
     <section id="contact" class="page-content">
       <h1>Contact Us</h1>
       <p>If you have any questions or feedback, please reach out using the form below:</p>
 
-    <form id="contact-form">
-  <label for="name">Your Name:</label>
-  <input type="text" id="name" name="user_name" required />
+      <form id="contact-form">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="user_name" required />
 
-  <label for="email">Your Email:</label>
-  <input type="email" id="email" name="user_email" required />
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="user_email" required />
 
-  <label for="message">Message:</label>
-  <textarea id="message" name="message" rows="6" required></textarea>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
 
-  <button type="submit">Send</button>
-</form>
-
+        <button type="submit">Send</button>
+      </form>
     </section>
 
   </div>
 
   <footer>
     &copy; 2025 Nufie Text Comparison Tool |
-    <a onclick="showSection('about')">About</a> |
-    <a onclick="showSection('privacy')">Privacy Policy</a> |
-    <a onclick="showSection('contact')">Contact</a>
+    <a href="#about" onclick="showSection('about'); return false;">About</a> |
+    <a href="#privacy" onclick="showSection('privacy'); return false;">Privacy Policy</a> |
+    <a href="#contact" onclick="showSection('contact'); return false;">Contact</a>
   </footer>
 
   <script>
@@ -341,6 +340,16 @@
       });
       window.scrollTo(0, 0);
     }
+
+    // Show the section based on the URL hash on page load
+    window.addEventListener('load', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash) {
+        showSection(hash);
+      } else {
+        showSection('home');
+      }
+    });
 
     function compareTexts() {
       const text1 = document.getElementById('text1').value.trim();

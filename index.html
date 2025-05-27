@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <meta name="google-site-verification" content="5b37ccd519d9674a" />
+  <meta name="google-site-verification" content="5b37ccd519d9674a" />
   <title>Compare Text, Code, JSON Online - Nufie Diff Tool</title>
 
   <style>
@@ -46,15 +46,12 @@
       margin: 20px auto;
     }
 
-    /* Hide all sections by default except home */
     section {
       display: none;
     }
     section.active {
       display: block;
     }
-
-    /* Your original styles for tool */
 
     h1.page-title {
       margin-bottom: 30px;
@@ -139,7 +136,6 @@
       width: 100%;
     }
 
-    /* Content styling for other pages */
     .page-content {
       background: #fff8f0;
       padding: 20px;
@@ -161,7 +157,6 @@
       margin-right: auto;
     }
 
-    /* Links in footer */
     footer a {
       color: white;
       margin: 0 5px;
@@ -218,7 +213,6 @@
 
   <div class="container">
 
-    <!-- Home Section -->
     <section id="home" class="active">
       <h1 class="page-title">Compare Text, JSON, Code Online</h1>
 
@@ -230,7 +224,6 @@
              data-ad-slot="2432524932"
              data-ad-format="horizontal"
              data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
 
       <div class="comparison-wrapper">
@@ -253,7 +246,6 @@
              data-ad-slot="2432524932"
              data-ad-format="auto"
              data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
       </div>
 
       <div class="page-content">
@@ -281,7 +273,6 @@
       </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="page-content">
       <h1>About Nufie Text Comparison Tool</h1>
       <p>
@@ -293,7 +284,6 @@
       <p>If you want to learn more, please <a href="#" onclick="showSection('contact')">contact us</a>.</p>
     </section>
 
-    <!-- Privacy Policy Section -->
     <section id="privacy" class="page-content">
       <h1>Privacy Policy</h1>
       <p>
@@ -315,7 +305,6 @@
       <p>For questions, please <a href="#" onclick="showSection('contact')">contact us</a>.</p>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="page-content">
       <h1>Contact Us</h1>
       <p>If you have any questions or feedback, please reach out using the form below:</p>
@@ -345,21 +334,14 @@
   </footer>
 
   <script>
-    // Function to show the chosen section and hide others
     function showSection(sectionId) {
       const sections = document.querySelectorAll('section');
       sections.forEach(sec => {
-        if (sec.id === sectionId) {
-          sec.classList.add('active');
-        } else {
-          sec.classList.remove('active');
-        }
+        sec.classList.toggle('active', sec.id === sectionId);
       });
-      // Scroll top on section change
       window.scrollTo(0, 0);
     }
 
-    // Basic diffing function (simplified)
     function compareTexts() {
       const text1 = document.getElementById('text1').value.trim();
       const text2 = document.getElementById('text2').value.trim();
@@ -372,7 +354,6 @@
         return;
       }
 
-      // Simple line-based diff (for demo purposes)
       const lines1 = text1.split('\n');
       const lines2 = text2.split('\n');
       let outputLeft = '';
@@ -401,7 +382,6 @@
       resultRight.innerHTML = outputRight;
     }
 
-    // Escape HTML special chars to display safely
     function escapeHtml(text) {
       const map = {
         '&': '&amp;',
@@ -412,10 +392,31 @@
       };
       return text.replace(/[&<>"']/g, function(m) { return map[m]; });
     }
-  </script>
 
-  <!-- Google AdSense script -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    // Lazy load Google Ads script after page load to reduce unused JS
+    function loadGoogleAds() {
+      if (window.adsbygoogleLoaded) return;
+      window.adsbygoogleLoaded = true;
+      const script = document.createElement('script');
+      script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js";
+      script.async = true;
+      script.onload = () => {
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        // Push ads in all ad containers
+        document.querySelectorAll('ins.adsbygoogle').forEach(() => {
+          try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+          } catch {}
+        });
+      };
+      document.head.appendChild(script);
+    }
+
+    window.addEventListener('load', () => {
+      // Load ads after full page load, you can also add delay or on user interaction
+      loadGoogleAds();
+    });
+  </script>
 
 </body>
 </html>

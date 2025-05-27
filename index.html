@@ -72,10 +72,18 @@
       background: transparent;
     }
 
+    /* Explicit font-size for all h1 inside section to fix deprecation warning */
+    section h1 {
+      font-size: 32px;
+      margin-top: 0;
+      color: #6d4c41;
+    }
+
     h1.page-title {
       margin-bottom: 30px;
-      font-size: 32px;
-      color: #6d4c41;
+      /* font-size removed here because covered by section h1 */
+      /* color stays here or you can keep in section h1 */
+      /* color: #6d4c41; */
     }
 
     .comparison-wrapper {
